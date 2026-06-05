@@ -42,4 +42,20 @@ public class UserRepositoryImpl implements UserRepository {
                 resultSetExtractor
         );
     }
+
+    @Override
+    public Boolean isUserABbdTracker(Integer userId) {
+        String sql = "SELECT is_bbd_tracker FROM users WHERE id = ?;";
+        ResultSetExtractor<Boolean> resultSetExtractor = rs -> {
+            if (rs.next())
+                return rs.getBoolean("is_bbd_tracker");
+            return null;
+        };
+        return jdbcTemplate.query(
+                sql,
+                ps -> ps.setInt(1, userId),
+                resultSetExtractor
+        );
+    }
+
 }

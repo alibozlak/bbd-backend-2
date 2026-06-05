@@ -34,6 +34,6 @@ public class AuthServiceImpl implements AuthService {
         extraClaims.put("userId", userId);
         String token = this.jwtService.generateToken(extraClaims, userDetails);
 
-        return new AuthResponseDto(token, userId);
+        return new AuthResponseDto(token);
     }
 }
