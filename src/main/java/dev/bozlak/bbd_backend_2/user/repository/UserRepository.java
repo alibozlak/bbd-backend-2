@@ -6,4 +6,5 @@ public interface UserRepository {
 
     UserDtoForAuthModule getUserDtoForAuthModule(String userCode);
     Integer getUserIdByUserCode(String userCode);
+    Boolean isUserABbdTracker(Integer userId);
 }
